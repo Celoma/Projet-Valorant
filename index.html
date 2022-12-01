@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="..\html\style.css">
+    <link rel="icon" href="img\icon\icon_valo.png" />
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/valorant');
+    </style>
+</head>
+    <title>Valorant</title>
+<header>
+    <a href="index.html">Home</a>
+    <a href="index.html">Test</a>
+    <a href="#install">Installer</a>
+</header>
+<body>
+    <div class="conteneur">
+        <div class="left">
+            <img src="img/agent_1.png">
+        </div>
+        <div class="mid">
+            <img src="img/agent_2.png">
+        </div>
+        <div class="right">
+            <a href="agent.html">
+                <img class="top" src="img/agent_3.png" >
+                <img class="bot" src="img/agent_2.png" >
+            </a>
+        </div>
+    </div>
+</body>
+<footer>
+    <script type="text/javascript">
+        function httpGet(theUrl)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+            xmlHttp.send( null );
+            return xmlHttp.responseText;
+        }
+        var data_set = JSON.parse(httpGet("https://valorant-api.com/v1/agents"));
+        var data_set = data_set['data'];
+        chaine = ""
+        for (variable in data_set) {
+            for (element in data_set[variable]){
+                if (element == 'fullPortrait'){
+                    lien = "<img src=" + data_set[variable][element] +" height = 150>"
+                }
+                if (element == 'isPlayableCharacter' & data_set[variable][element]){
+                    chaine += lien;
+            }
+        }
+    }
+    document.write("chaine");
+    </script>
+    <div id="install">
+    <a href="https://playvalorant.com/fr-fr/download/"><button>Installer</button></a>
+    <video # autoplay loop muted>
+        <source src="vid/VALORANT_ANNO22_SHATTERED_16x9_27s.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    </div>
+</footer>
+</html>

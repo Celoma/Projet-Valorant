@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="..\html\style.css">
+    <link rel="icon" href="img\icon\icon_valo.png" />
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/valorant');
+    </style>
+</head>
+    <title>Valorant</title>
+<header>
+    <a href="index.html">Home</a>
+    <a href="index.html">Test</a>
+</header>
+<body>
+    <div class="conteneur">
+        <img src="img/agent_1.png">
+    </div>
+</body>
+<footer>
+    <script type="text/javascript">
+        function httpGet(theUrl)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+            xmlHttp.send( null );
+            return xmlHttp.responseText;
+        }
+        var data_set = JSON.parse(httpGet("https://valorant-api.com/v1/agents"));
+        var data_set = data_set['data'];
+        chaine = ""
+        for (variable in data_set) {
+            for (element in data_set[variable]){
+                if (element == 'fullPortrait'){
+                    lien = "<img src=" + data_set[variable][element] +" height = 150>"
+                }
+                if (element == 'isPlayableCharacter' & data_set[variable][element]){
+                    chaine += lien;
+            }
+        }
+    }
+    document.write("chaine");
+    </script>
+    <p>Mon bas de page</p>
+</footer>
+</html>
