@@ -1,7 +1,7 @@
 # Projet-Valorant
 Site HTML/CSS + JS
 
-**07/12**
+**07/12** *Kick-off*
 
 navbar : Done
 body : Done
