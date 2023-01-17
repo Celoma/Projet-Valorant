@@ -26,3 +26,9 @@ All the positioning
 
 ToDo :
 Add description with agents
+
+**17/01/2023**
+
+Done : Map / Weapon / Agent pages
+
+ToDo : Interraction between weapons skins.
