@@ -1,0 +1,375 @@
+@import url('https://fonts.cdnfonts.com/css/valorant');
+html{
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin:0;
+    padding:0;
+    font-family:'Calibri', sans-serif;
+}
+
+.menu{
+    min-width: 240px;
+    scroll-behavior: smooth;
+}
+
+#navbar {
+    background-color: rgb(26, 28, 24);
+    z-index: 99;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#navbar img{
+    height: 54px;
+    position: absolute;
+    margin-left: 47%;
+}
+
+#navbar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+    transition: background-color 0.5s linear, color 0.2s linear;
+}
+
+#navbar a:hover {
+    color: rgb(26, 28, 24);
+    background-color: #f2f2f2;
+}
+
+.bg_icon{
+    background-color: aliceblue;
+}
+
+.bg_test{
+    background: linear-gradient(90deg,rgb(190, 190, 190) 0%,rgb(247, 224, 224) 100%);
+    background-size: auto;
+    color: #fff;
+    height: 70vh;
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    padding: 25px 0 100px 0;
+}
+@keyframes gradient{
+    0%{background-position:0 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0 50%}
+}
+
+.home_conteneur{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 38%;
+}
+
+h1{
+    position: absolute;
+    font-family: 'Valorant';
+    font-size: 17vw;
+    margin-left: 2vw;
+    color: rgb(255, 255, 255);
+    opacity: 0.7;
+    text-shadow: 0 0 2px #000;
+    cursor: default;
+}
+
+.light{
+    z-index: 1;
+    opacity: 0.2;
+}
+
+h2{
+    padding-top: 100px;
+    font-family: 'Valorant';
+    font-size: 5.9vw;
+    text-align: center;
+    margin: 0;
+    color: rgb(196, 15, 45);
+}
+
+#navbar h3{
+    margin-right: 5%;
+}
+
+h3{
+    color: #f2f2f2;
+    font-family: 'Valorant';
+    transition: color 5s;
+}
+
+h3:hover{
+    cursor: default;
+    color: red;
+}
+
+.home_conteneur img{
+    width: 20%;
+    margin: 5%;
+}
+
+.home_conteneur div{
+    width: 30%;
+}
+
+
+
+.selector {
+    width: 100%;
+    display: flex;
+    margin-left: 0%;
+    margin-top: 30px;
+    min-height: 60vh;
+    justify-content: space-evenly;
+    flex-direction: row;
+    color: #0C1824;
+}
+
+@media (max-width: 800px) {
+    .selector #main_right{
+        width: 90%;
+        order: 2;
+    }
+    .selector #main_center{
+        order: 1;
+        width: 90%;
+    }
+    .selector #main_left{
+        order: 3;
+        width: 90%;
+        text-align: center;
+    }
+    .selector #main_left img{
+        width: 10%;
+    }
+    .selector #main_right p {
+        font-size: 15px;
+    }
+    .selector{
+        flex-direction: column;
+        margin-left: 5%;
+        justify-content:space-evenly;
+        width: 100%;
+    }
+}
+
+#main_top{
+    display: flex;
+    justify-content:space-evenly;
+    width: 100%;
+    margin-top: 54px;
+}
+#main_right{
+    width: 20%;
+    order: 3;
+    position: relative;
+}
+
+#main_right p {
+    margin-top: 5px;
+    font-size: 1.9vw;
+    text-align: justify;
+}
+
+#main_center{
+    width: 50%;
+    position: relative;
+    order: 2;
+}
+#main_left{
+    width: 20%;
+    order: 1;
+    text-align: justify;
+    margin-top: 0;
+}
+
+#main_left img {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#add_img{
+}
+
+#main_center img{
+}
+
+
+#skin {
+    position: relative;
+    width: 32%;
+    margin-left: 34%;
+}
+
+#main_bot{
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    position: relative;
+    padding-bottom: 5px;
+    padding-top: 20px;
+    background-color: #0C1824 ;
+}
+
+.small {
+    width: 70%;
+    scroll-behavior: smooth;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+#main_center button{
+    width: 70%;
+    margin-top: 75px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+
+.trace_carte {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    width: 50%;
+}
+
+.fond_trace{
+    position: relative;
+}
+
+.debug {
+    position: absolute;
+    top: 0;
+}
+.img_bot_mosaique {
+    width: 100%;
+    column-count: 3;
+    padding-bottom: 50px;
+}
+
+.overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay img{
+    margin: 1%;
+    width: 90%;
+
+}
+
+.overlay h3 {
+    color: #920000;
+    position: absolute;
+    padding-left: 4%;
+    margin-bottom: 10%;
+    font-size: 3vw;
+}
+
+button{
+    text-decoration: none;
+    z-index: 98;
+    font-weight: bold;
+    cursor: pointer;
+    height: 50px;
+    min-width: 100px;
+    color: white;
+    background-color: #920000;
+    transition: ease-in-out 0.5s;
+    border-radius: 10px;
+}
+button:hover{
+    box-shadow: inset 700px 0 0 0 rgb(26, 28, 24);
+}
+
+.bg_center{
+    width: 100%;
+}
+.behind{
+    position: absolute;
+    top: 10px;
+    z-index: 1;
+    width: 34%;
+    margin-left: 27%;
+}
+.above{
+    position: absolute;
+    z-index: 2;
+    margin-left: 27%;
+    width: 58%;
+    top: 0px;
+}
+.txt_button:hover{
+    cursor: pointer;
+}
+
+.overlay:hover{
+    cursor: pointer;
+}
+.less{
+    z-index: 20;
+    cursor: pointer;
+}
+
+.add{
+    z-index: 20;
+    cursor: pointer;
+}
+
+.top{
+    transition: opacity 0.4s ease-in-out, transform 1s ease-in-out;
+    position:absolute;
+    z-index:4;
+}
+
+.top:hover + .bot{
+    transform: scale(1.1);
+}
+
+.top:hover{
+    transform: scale(1.1);
+    opacity: 0;
+}
+
+.bot{
+    transition: transform 1s ease-in-out;
+    position:absolute;
+    z-index:2;
+}
+
+video{
+    width: 100%;
+}
+
+.jouez_btn{
+    position: absolute;
+    left: 50%;
+    margin-top: 30%;
+    width: 184px;
+    margin-left: -92px;
+    font-family: 'VALORANT';
+    padding: 15px;
+    text-decoration: none;
+    z-index: 98;
+    color: beige;
+    background-color: #FF5152;
+    transition: ease-out 0.5s;
+    border-radius: 10px;
+}
+
+.jouez_btn:hover{
+    box-shadow: inset 300px 0 0 0 #0C1824;
+}
+footer{
+    background-color: orange;
+    height: 75px;
+}
