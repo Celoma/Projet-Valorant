@@ -31,4 +31,5 @@ Add description with agents
 
 Done : Map / Weapon / Agent pages
 
-ToDo : Interraction between weapons skins.
+ToDo : Interraction between weapons skins, I will change the 3 button in index.html cause it's kinda ugly.
+
