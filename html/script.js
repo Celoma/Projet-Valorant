@@ -19,6 +19,8 @@ const urlList = {
   "agent.html": ["https://valorant-api.com/v1/agents", ["displayName", "description", "bustPortrait", "background", "role"]],
 };
 
+
+
 const currentUrl = window.location.href.toString().split('/').pop().split('#')[0];
 
 let dataSet = [];
@@ -66,14 +68,14 @@ function importData() {
       document.getElementById("main_center").getElementsByTagName("img")[0].style.width = '100%';
       document.getElementById("main_center").getElementsByTagName("img")[1].style.width = '100%';
     } else if (currentUrl === "arme.html") {
-    mainCenter.innerHTML = `<img class="small" src="${dataSet[currentIndex][1]}">`;
+    mainCenter.innerHTML = `<img id="small" src="${dataSet[currentIndex][1]}">`;
     prebot.innerHTML = `<a href="#skins"><button id='skin'>Voir les cosmétiques</button>`
     let images =''
     skin_bugger = ['Prime Guardian', 'Sovereign Guardian', 'Sovereign Marshal', 'Luxe Knife', 'Melee']
-    for (item of dataSet[currentIndex][2]){
-    if( item['displayIcon'] != null & item['displayName'].slice(0,8) != 'Standard' & item['displayName'] != 'Random Favorite Skin' & !(skin_bugger.includes(item['displayName'])))
+    for (item in dataSet[currentIndex][2]){
+    if( dataSet[currentIndex][2][item]['displayIcon'] != null & dataSet[currentIndex][2][item]['displayName'].slice(0,8) != 'Standard' & dataSet[currentIndex][2][item]['displayName'] != 'Random Favorite Skin' & !(skin_bugger.includes(dataSet[currentIndex][2][item]['displayName'])))
       {
-        images += `<div class='overlay'><img src="${item['displayIcon']}" onclick="skinUpdate(${item})"></div>`;
+        images += `<div class='overlay'><img src="${dataSet[currentIndex][2][item]['displayIcon']}" onclick="skinUpdate(${item})"></div>`;
       }
     mainBot.innerHTML = `<h3 id='skins'>${dataSet[currentIndex][0]}</h3><div class='img_bot_mosaique'>${images}</div>`;
     document.querySelector(".img_bot_mosaique").style.visibility = 'hidden';
@@ -89,8 +91,8 @@ function carteUpdate(newIndex){
   importData();
 }
 
-function skinUpdate(skin){
-  console.log(skin);
+function skinUpdate(currentSkin){
+  console.log(dataSet[currentIndex][2][currentSkin]);
 }
 function updateBtnAdd() {
   currentIndex = (currentIndex + 1) % dataSet.length;
