@@ -26,15 +26,12 @@ let currentIndex = 0;
 
 function showSkin(){
   if (document.querySelector(".img_bot_mosaique").style.visibility === 'visible'){
-    document.querySelector(".img_bot_mosaique").style.visibility = 'hidden'
-    document.querySelector(".img_bot_mosaique").style.display = 'None'
-
+    document.querySelector(".img_bot_mosaique").style.visibility = 'hidden';
+    document.querySelector(".img_bot_mosaique").style.display = 'None';
   } else {
     document.querySelector(".img_bot_mosaique").style.visibility = 'visible';
-    document.querySelector(".img_bot_mosaique").style.display = 'block'
-
+    document.querySelector(".img_bot_mosaique").style.display = 'block';
   }
-
 }
 
 function getRandomInt(max) {
@@ -76,11 +73,11 @@ function importData() {
     for (item of dataSet[currentIndex][2]){
     if( item['displayIcon'] != null & item['displayName'].slice(0,8) != 'Standard' & item['displayName'] != 'Random Favorite Skin' & !(skin_bugger.includes(item['displayName'])))
       {
-        images += `<div class='overlay'><img src="${item['displayIcon']}"></div>`;
+        images += `<div class='overlay'><img src="${item['displayIcon']}" onclick="skinUpdate(${item})"></div>`;
       }
     mainBot.innerHTML = `<h3 id='skins'>${dataSet[currentIndex][0]}</h3><div class='img_bot_mosaique'>${images}</div>`;
     document.querySelector(".img_bot_mosaique").style.visibility = 'hidden';
-    document.querySelector(".img_bot_mosaique").style.display = 'None'
+    document.querySelector(".img_bot_mosaique").style.display = 'None';
     const btnSkin = document.getElementById('skin');
     btnSkin.onclick = function() {showSkin()};
     }
@@ -88,10 +85,13 @@ function importData() {
 }
 
 function carteUpdate(newIndex){
-  currentIndex = newIndex
-  importData()
+  currentIndex = newIndex;
+  importData();
 }
 
+function skinUpdate(skin){
+  console.log(skin);
+}
 function updateBtnAdd() {
   currentIndex = (currentIndex + 1) % dataSet.length;
   importData();
@@ -133,4 +133,3 @@ for (const item of data) {
     currentIndex = getRandomInt(dataSet.length);
     
     importData();
-

@@ -49,10 +49,9 @@ body {
 }
 
 .bg_test{
-    background: linear-gradient(90deg,rgb(190, 190, 190) 0%,rgb(247, 224, 224) 100%);
+    background: linear-gradient(90deg,rgb(255, 255, 255) 0%,rgb(255, 255, 255) 100%);
     background-size: auto;
     color: #fff;
-    height: 70vh;
     background-size: 400% 400%;
     animation: gradient 10s ease infinite;
     padding: 25px 0 100px 0;
@@ -65,8 +64,7 @@ body {
 
 .home_conteneur{
     display: flex;
-    justify-content: space-around;
-    padding-bottom: 38%;
+    justify-content: space-evenly;
 }
 
 h1{
@@ -109,23 +107,32 @@ h3:hover{
     color: red;
 }
 
-.home_conteneur img{
-    width: 20%;
-    margin: 5%;
+h4{
+    background-color: #C49D83;
+    padding: 5vw;
+    font-size: 3vw;
+    border: solid #0C1824 1vw;
+    color:#0C1824;
+    font-family: Valorant;
+    transition: transform 0.2s linear, color 0.2s linear, font-size 0.2s linear;
 }
 
-.home_conteneur div{
-    width: 30%;
+h4:hover {
+    transform: scale(1.1);
+    color: #80586D;
+    font-size: 3vw;
 }
 
-
+.home_conteneur a{
+    text-decoration: none;
+}
 
 .selector {
     width: 100%;
     display: flex;
     margin-left: 0%;
     margin-top: 30px;
-    min-height: 60vh;
+    min-height: 500px;
     justify-content: space-evenly;
     flex-direction: row;
     color: #0C1824;
@@ -196,9 +203,11 @@ h3:hover{
 }
 
 #add_img{
+
 }
 
 #main_center img{
+    
 }
 
 
@@ -218,6 +227,21 @@ h3:hover{
     background-color: #0C1824 ;
 }
 
+.behind{
+    position: absolute;
+    top: 10px;
+    z-index: 1;
+    width: 34%;
+    margin-left: 27%;
+}
+.above{
+    position: absolute;
+    z-index: 2;
+    margin-left: 27%;
+    width: 58%;
+    top: 0px;
+}
+
 .small {
     width: 70%;
     scroll-behavior: smooth;
@@ -235,7 +259,7 @@ h3:hover{
 
 .trace_carte {
     position: absolute;
-    top: 10%;
+    top: 0%;
     left: 25%;
     width: 50%;
 }
@@ -250,10 +274,9 @@ h3:hover{
 }
 .img_bot_mosaique {
     width: 100%;
-    column-count: 3;
+    column-count: 5;
     padding-bottom: 50px;
 }
-
 .overlay {
     display: flex;
     flex-direction: column;
@@ -262,17 +285,15 @@ h3:hover{
 }
 
 .overlay img{
-    margin: 1%;
-    width: 90%;
-
+    margin: 5px;
+    width: 17vw;
 }
 
 .overlay h3 {
     color: #920000;
     position: absolute;
-    padding-left: 4%;
-    margin-bottom: 10%;
-    font-size: 3vw;
+    margin-bottom: 7%;
+    font-size: 2vw;
 }
 
 button{
@@ -294,20 +315,7 @@ button:hover{
 .bg_center{
     width: 100%;
 }
-.behind{
-    position: absolute;
-    top: 10px;
-    z-index: 1;
-    width: 34%;
-    margin-left: 27%;
-}
-.above{
-    position: absolute;
-    z-index: 2;
-    margin-left: 27%;
-    width: 58%;
-    top: 0px;
-}
+
 .txt_button:hover{
     cursor: pointer;
 }
