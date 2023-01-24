@@ -108,18 +108,25 @@ h3:hover{
 }
 
 h4{
-    background-color: #C49D83;
+    background-color: #d01010;
     padding: 5vw;
     font-size: 3vw;
     border: solid #0C1824 1vw;
-    color:#0C1824;
+    color:#e0e0e0;
     font-family: Valorant;
-    transition: transform 0.2s linear, color 0.2s linear, font-size 0.2s linear;
+    border-top-left-radius: 2vw;
+    border-bottom-right-radius: 2vw;
+    transition: transform 0.2s linear, color 0.2s linear, font-size 0.2s linear, background-color 0.5s linear, border-top-left-radius 0.3s linear, border-bottom-right-radius 0.3s linear, border-top-right-radius 0.3s linear, border-bottom-left-radius 0.3s linear;
 }
 
 h4:hover {
     transform: scale(1.1);
-    color: #80586D;
+    color: #000000;
+    background-color: #ab1b1b;
+    border-top-left-radius: 0vw;
+    border-bottom-right-radius: 0vw;
+    border-top-right-radius: 2vw;
+    border-bottom-left-radius: 2vw;
     font-size: 3vw;
 }
 
