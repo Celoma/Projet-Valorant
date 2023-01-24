@@ -126,7 +126,7 @@ function skinUpdate(currentSkin, nb, type){
   document.getElementById("vidOrImg").style.visibility = 'visible';
   document.getElementById("chooseSkin").style.visibility = 'visible';
 
-  weaponName.innerHTML = `${currentSkin[type][nb]['displayName']}`;
+  weaponName.innerHTML = `${currentSkin[type][0]['displayName']}`;
 
   if (currentSkin[type][nb]['streamedVideo'] != null){
     vidOrImg.innerHTML = ` <video controls class="vidArme">
