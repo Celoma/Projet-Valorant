@@ -6,12 +6,13 @@ const mainCenter = document.getElementById('main_center');
 const addImg = document.getElementById('add_img');
 const mainBot = document.getElementById('main_bot');
 const prebot = document.getElementById("prebot");
+const Close = document.getElementById("Close")
 
 var Interraction = document.getElementById('interraction_img_carte');
 
-
 btnAdd.addEventListener('click', updateBtnAdd);
 btnLess.addEventListener('click', updateBtnLess);
+
 
 const urlList = {
   "arme.html": ["https://valorant-api.com/v1/weapons", ["displayName", "displayIcon", "skins"]],
@@ -19,7 +20,26 @@ const urlList = {
   "agent.html": ["https://valorant-api.com/v1/agents", ["displayName", "description", "bustPortrait", "background", "role"]],
 };
 
-
+const TailleArme = {
+  "Phantom": "350%",
+  "Operator": "350%",
+  "Bulldog": "350%",
+  "Judge": "350%",
+  "Bucky": "350%",
+  "Ares": "350%",
+  "Classic": "40%",
+  "Frenzy": "40%",
+  "Shorty": "60%",
+  "Ghost": "75%",
+  "Melee": "60%",
+  "Odin": "150%",
+  "Marshal": "150%",
+  "Vandal": "150%",
+  "Guardian": "150%",
+  "Sheriff": "70%",
+  "Stinger": "150%",
+  "Spectre": "100%"
+}
 
 const currentUrl = window.location.href.toString().split('/').pop().split('#')[0];
 
@@ -69,18 +89,21 @@ function importData() {
       document.getElementById("main_center").getElementsByTagName("img")[1].style.width = '100%';
     } else if (currentUrl === "arme.html") {
     mainCenter.innerHTML = `<img id="small" src="${dataSet[currentIndex][1]}">`;
+    document.getElementById("main_center").style.width = TailleArme[dataSet[currentIndex][0]];
     prebot.innerHTML = `<a href="#skins"><button id='skin'>Voir les cosmétiques</button>`
     let images =''
     skin_bugger = ['Prime Guardian', 'Sovereign Guardian', 'Sovereign Marshal', 'Luxe Knife', 'Melee']
     for (item in dataSet[currentIndex][2]){
     if( dataSet[currentIndex][2][item]['displayIcon'] != null & dataSet[currentIndex][2][item]['displayName'].slice(0,8) != 'Standard' & dataSet[currentIndex][2][item]['displayName'] != 'Random Favorite Skin' & !(skin_bugger.includes(dataSet[currentIndex][2][item]['displayName'])))
       {
-        images += `<div class='overlay'><img src="${dataSet[currentIndex][2][item]['displayIcon']}" onclick="skinUpdate(${item})"></div>`;
+        images += `<div class='overlay'><img src="${dataSet[currentIndex][2][item]['displayIcon']}" onclick="skinUpdate(${item}, 0, 'levels')"></div>`;
       }
     mainBot.innerHTML = `<h3 id='skins'>${dataSet[currentIndex][0]}</h3><div class='img_bot_mosaique'>${images}</div>`;
     document.querySelector(".img_bot_mosaique").style.visibility = 'hidden';
     document.querySelector(".img_bot_mosaique").style.display = 'None';
     const btnSkin = document.getElementById('skin');
+    const weaponName = document.getElementById("weaponName")
+    Close.addEventListener('click', closeOverlay)
     btnSkin.onclick = function() {showSkin()};
     }
   }
@@ -91,9 +114,66 @@ function carteUpdate(newIndex){
   importData();
 }
 
-function skinUpdate(currentSkin){
-  console.log(dataSet[currentIndex][2][currentSkin]);
+function skinUpdate(currentSkin, nb, type){
+
+  nbSkin = currentSkin;
+  currentSkin = dataSet[currentIndex][2][currentSkin];
+
+  const vidOrImg = document.getElementById("vidOrImg");
+  document.querySelector("html").style.overflowY = 'hidden';
+  document.querySelector(".OverlayPopUp").style.visibility = 'visible';
+  document.querySelector(".fenetre").style.visibility = 'visible';
+  document.getElementById("vidOrImg").style.visibility = 'visible';
+  document.getElementById("chooseSkin").style.visibility = 'visible';
+
+  weaponName.innerHTML = `${currentSkin[type][nb]['displayName']}`;
+
+  if (currentSkin[type][nb]['streamedVideo'] != null){
+    vidOrImg.innerHTML = ` <video controls class="vidArme">
+    <source src="${currentSkin[type][nb]['streamedVideo']}" type="video/mp4" >
+    Your browser does not support the video tag.
+    </video>`
+  } else { if (currentSkin[type][nb]['displayIcon'] != null) {
+    vidOrImg.innerHTML = `<img class="vidArme" src="${currentSkin[type][nb]['displayIcon']}">`
+  } else {
+    vidOrImg.innerHTML = `<img class="vidArme" src="${currentSkin[type][nb]['fullRender']}">`
+    }
+  }
+  tabSkin = []
+  chooseSkin.innerHTML = ""
+
+  for (item in currentSkin['levels']){
+    tabSkin.push([currentSkin["levels"][item]['displayName'], 'levels'])
+    chooseSkin.innerHTML = chooseSkin.innerHTML + `<p onclick="skinUpdate(${nbSkin}, ${item}, 'levels')">${tabSkin[item][0]}</p>`;
+  }
+
+  for (item in currentSkin['chromas']){
+
+    if (item != 0){
+    tabSkin.push([currentSkin['chromas'][item]['displayName'], 'chromas'])
+    chooseSkin.innerHTML = chooseSkin.innerHTML + `<p onclick="skinUpdate(${nbSkin}, ${item}, 'chromas')">${tabSkin[item][0]}</p>`;
+    }
+  }
 }
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+   //if esc key was not pressed in combination with ctrl or alt or shift
+      const isNotCombinedKey = !(event.ctrlKey || event.altKey || event.shiftKey);
+      if (isNotCombinedKey) {
+        closeOverlay();
+      }
+  }
+});
+
+function closeOverlay(){
+  document.querySelector(".OverlayPopUp").style.visibility = 'hidden';
+  document.querySelector(".fenetre").style.visibility = 'hidden';
+  document.getElementById("vidOrImg").style.visibility = 'hidden';
+  document.getElementById("chooseSkin").style.visibility = 'hidden';
+  document.querySelector("html").style.overflowY = 'scroll';
+}
+
 function updateBtnAdd() {
   currentIndex = (currentIndex + 1) % dataSet.length;
   importData();
