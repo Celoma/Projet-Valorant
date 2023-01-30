@@ -9,11 +9,11 @@ body {
     margin:0;
     padding:0;
     font-family:'Calibri', sans-serif;
+    background-color: #aaa;
 }
 
 .menu{
     min-width: 240px;
-    scroll-behavior: smooth;
 }
 
 #navbar {
@@ -27,12 +27,11 @@ body {
 
 #navbar img{
     height: 54px;
-    position: absolute;
+    position: fixed;
     margin-left: 47%;
 }
 
 #navbar a {
-
     float: left;
     color: #f2f2f2;
     text-align: center;
@@ -46,6 +45,9 @@ body {
     background-color: #f2f2f2;
 }
 
+header {
+    height: 60px;
+}
 .bg_icon{
     background-color: #aaa;
 }
@@ -87,8 +89,8 @@ h1{
 }
 
 h2{
-    padding-top: 100px;
     font-family: 'Valorant';
+    padding-top: 25px;
     font-size: 5.9vw;
     text-align: center;
     margin: 0;
@@ -191,7 +193,6 @@ h4:hover {
     display: flex;
     justify-content:space-evenly;
     width: 100%;
-    margin-top: 54px;
 }
 #main_right{
     width: 20%;
@@ -615,4 +616,38 @@ html {
 .oneLigne2 {
     margin-left: 45%;
     margin-right: 45%;
+}
+
+.infoConteneur {
+    background-color: rgb(252, 252, 252, 0.7);
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    margin-right: 5%;
+}
+
+.infoConteneur p {
+    text-align: left;
+    font-size: 1.4vw;
+    padding: 10px;
+}
+
+.splitScreenInfo {
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+}
+
+.splitScreenInfo .mainLeft {
+    width: 20%;
+}
+
+.splitScreenInfo .mainLeft img{
+    width: 100%;
+}
+
+.splitScreenInfo .mainRight {
+    width: 65%;
 }
