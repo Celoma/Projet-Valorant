@@ -90,7 +90,7 @@ function importData() {
     } else if (currentUrl === "arme.html") {
     mainCenter.innerHTML = `<img id="small" src="${dataSet[currentIndex][1]}">`;
     document.getElementById("main_center").style.width = TailleArme[dataSet[currentIndex][0]];
-    prebot.innerHTML = `<a href="#skins"><button id='skin' class="glow-button"><span>Voir les cosmétiques</span></button> </a>`
+    prebot.innerHTML = `<a href="#skins"><button id='skin' class="glow-button"><span>Voir les cosmétiques</span></button></a>`
     let images =''
     skin_bugger = ['Prime Guardian', 'Sovereign Guardian', 'Sovereign Marshal', 'Luxe Knife', 'Melee']
     for (item in dataSet[currentIndex][2]){
