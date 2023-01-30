@@ -32,6 +32,7 @@ body {
 }
 
 #navbar a {
+
     float: left;
     color: #f2f2f2;
     text-align: center;
@@ -196,6 +197,7 @@ h4:hover {
     width: 20%;
     order: 3;
     position: relative;
+    text-align: center;
 }
 
 #main_right p {
@@ -222,19 +224,7 @@ h4:hover {
     margin-right: 25%;
 }
 
-#add_img{
 
-}
-
-#main_center img{
-    
-}
-
-
-#skin {
-    margin-left: 45%;
-    margin-right: 45%;
-}
 
 #main_bot{
     width: 100%;
@@ -614,4 +604,15 @@ html {
 }
 *:before, *:after {
     box-sizing: inherit;
+}
+
+.oneLigne {
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+}
+
+.oneLigne2 {
+    margin-left: 45%;
+    margin-right: 45%;
 }
