@@ -1,5 +1,5 @@
-const btnAdd = document.querySelector('.add');
-const btnLess = document.querySelector('.less');
+const btnAdd = document.getElementById('add');
+const btnLess = document.getElementById('less');
 const mainLeft = document.getElementById('main_left');
 const mainRight = document.getElementById('main_right');
 const mainCenter = document.getElementById('main_center');
@@ -90,7 +90,7 @@ function importData() {
     } else if (currentUrl === "arme.html") {
     mainCenter.innerHTML = `<img id="small" src="${dataSet[currentIndex][1]}">`;
     document.getElementById("main_center").style.width = TailleArme[dataSet[currentIndex][0]];
-    prebot.innerHTML = `<a href="#skins"><button id='skin'>Voir les cosmétiques</button>`
+    prebot.innerHTML = `<a href="#skins"><button id='skin' class="glow-button"><span>Voir les cosmétiques</span></button> </a>`
     let images =''
     skin_bugger = ['Prime Guardian', 'Sovereign Guardian', 'Sovereign Marshal', 'Luxe Knife', 'Melee']
     for (item in dataSet[currentIndex][2]){
@@ -121,6 +121,7 @@ function skinUpdate(currentSkin, nb, type){
 
   const vidOrImg = document.getElementById("vidOrImg");
   document.querySelector("html").style.overflowY = 'hidden';
+  document.querySelector(".img_bot_mosaique").style.filter = 'blur(20px)';
   document.querySelector(".OverlayPopUp").style.visibility = 'visible';
   document.querySelector(".fenetre").style.visibility = 'visible';
   document.getElementById("vidOrImg").style.visibility = 'visible';
@@ -169,6 +170,7 @@ document.addEventListener('keydown', (event) => {
 function closeOverlay(){
   document.querySelector(".OverlayPopUp").style.visibility = 'hidden';
   document.querySelector(".fenetre").style.visibility = 'hidden';
+  document.querySelector(".img_bot_mosaique").style.filter = 'blur(0px)';
   document.getElementById("vidOrImg").style.visibility = 'hidden';
   document.getElementById("chooseSkin").style.visibility = 'hidden';
   document.querySelector("html").style.overflowY = 'scroll';
