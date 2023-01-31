@@ -9,7 +9,7 @@ body {
     margin:0;
     padding:0;
     font-family:'Calibri', sans-serif;
-    background-color: #aaa;
+    background-color: rgb(247, 221, 221);
 }
 
 .menu{
@@ -48,23 +48,11 @@ body {
 header {
     height: 60px;
 }
-.bg_icon{
-    background-color: #aaa;
-}
 
 .bg_test{
-    background-color: #aaa;
-    background-size: auto;
-    color: #fff;
-    background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
     padding: 25px 0 100px 0;
 }
-@keyframes gradient{
-    0%{background-position:0 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0 50%}
-}
+
 
 .home_conteneur{
     display: flex;
@@ -81,11 +69,6 @@ h1{
     opacity: 0.7;
     text-shadow: 0 0 2px #000;
     cursor: default;
-}
-
-.light{
-    z-index: 1;
-    opacity: 0.2;
 }
 
 h2{
@@ -650,4 +633,12 @@ html {
 
 .splitScreenInfo .mainRight {
     width: 65%;
+}
+.btn-toggle {
+cursor: pointer;
+}
+
+body.dark {
+    color: #fff!important;
+    background: rgb(51, 51, 51)!important;
 }
